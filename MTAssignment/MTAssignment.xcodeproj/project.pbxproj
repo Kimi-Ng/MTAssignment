@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		089AA95A22465BA000355012 /* FetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 089AA95922465BA000355012 /* FetchManager.m */; };
+		089AA95D22465BAD00355012 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 089AA95C22465BAD00355012 /* CoreDataManager.m */; };
 		08F97213224656B800FFC221 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F97212224656B800FFC221 /* AppDelegate.m */; };
 		08F97216224656B800FFC221 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F97215224656B800FFC221 /* ViewController.m */; };
 		08F9721C224656B800FFC221 /* MTAssignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08F9721A224656B800FFC221 /* MTAssignment.xcdatamodeld */; };
@@ -36,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		089AA95822465BA000355012 /* FetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FetchManager.h; sourceTree = "<group>"; };
+		089AA95922465BA000355012 /* FetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FetchManager.m; sourceTree = "<group>"; };
+		089AA95B22465BAD00355012 /* CoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		089AA95C22465BAD00355012 /* CoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		08F9720E224656B800FFC221 /* MTAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08F97211224656B800FFC221 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08F97212224656B800FFC221 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -84,6 +90,10 @@
 		089AA95722465A6A00355012 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				089AA95822465BA000355012 /* FetchManager.h */,
+				089AA95922465BA000355012 /* FetchManager.m */,
+				089AA95B22465BAD00355012 /* CoreDataManager.h */,
+				089AA95C22465BAD00355012 /* CoreDataManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -265,9 +275,11 @@
 			files = (
 				08F97216224656B800FFC221 /* ViewController.m in Sources */,
 				08F9724E22465A0E00FFC221 /* Transaction+CoreDataClass.m in Sources */,
+				089AA95D22465BAD00355012 /* CoreDataManager.m in Sources */,
 				08F9721C224656B800FFC221 /* MTAssignment.xcdatamodeld in Sources */,
 				08F97224224656B800FFC221 /* main.m in Sources */,
 				08F9725022465A0E00FFC221 /* Account+CoreDataClass.m in Sources */,
+				089AA95A22465BA000355012 /* FetchManager.m in Sources */,
 				08F9724F22465A0E00FFC221 /* Transaction+CoreDataProperties.m in Sources */,
 				08F97213224656B800FFC221 /* AppDelegate.m in Sources */,
 				08F9725122465A0E00FFC221 /* Account+CoreDataProperties.m in Sources */,

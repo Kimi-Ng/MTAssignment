@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TransactionViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TransactionViewController : UIViewController
+@property (strong, nonatomic, readonly) TransactionViewModel *viewModel;
+
+- (instancetype)initWithAccountID:(NSInteger)accountID;
 
 @end
 

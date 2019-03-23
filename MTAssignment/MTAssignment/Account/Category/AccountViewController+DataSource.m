@@ -7,7 +7,7 @@
 //
 
 #import "AccountViewController+DataSource.h"
-
+#import "TransactionViewController.h"
 
 static NSString *const kAccountCellIdentifier = @"kAccountCellIdentifier";
 
@@ -45,8 +45,9 @@ static NSString *const kAccountCellIdentifier = @"kAccountCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //TODO: push  detail viewcontroller
-    
+    Account *account = self.viewModel.data[indexPath.section].accountList[indexPath.row];
+    TransactionViewController *transactionViewController = [[TransactionViewController alloc] initWithAccountID:account.accountID];
+    [self.navigationController pushViewController:transactionViewController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section

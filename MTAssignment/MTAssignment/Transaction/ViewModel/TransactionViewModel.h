@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Transaction+CoreDataClass.h"
+#import "MTSimpletableViewCell.h"
 
 #define kTransactionUpdateNotification @"kTransactionUpdateNotification"
 
@@ -28,6 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSArray *transactionList;
 
 - (instancetype)initWithSection:(NSString *)section transactions:(NSArray *)transactions;
+
+@end
+
+@interface Transaction (MTSimpleTableViewCellDataProtocol) <MTSimpleTableViewCellDataProtocol>
+
 
 @end
 

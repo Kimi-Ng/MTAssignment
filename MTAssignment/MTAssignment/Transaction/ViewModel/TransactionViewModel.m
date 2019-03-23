@@ -42,15 +42,13 @@
     [[FetchManager sharedInstance] fetchTransactionsWithAccountID:self.accountID completion:^(NSMutableArray<Transaction *> * _Nonnull transactionList) {
         //need to update viewModel
         self.data = [self viewModelFromTransacitonArray:transactionList];
-        //need to update view
-        //post notification
         [[NSNotificationCenter defaultCenter] postNotificationName:kTransactionUpdateNotification object:@{@"NewData":self.data}];
     }];
 }
 
 
 #pragma mark - private helper
-//Order by date
+
 //transform Transaction List into TransactionModel list
 - (NSArray <TransactionModel *> *)viewModelFromTransacitonArray:(NSArray <Transaction *> *)transactionList {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
@@ -69,6 +67,7 @@
         [modelArr addObject:viewModel];
     }];
     
+    //sort by date
     NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"section" ascending:NO];
     [modelArr sortUsingDescriptors:@[sortDesc]];
     
@@ -105,5 +104,20 @@
     return self;
 }
 
+@end
+
+
+@implementation Transaction (TSimpleTableViewCellDataProtocol)
+
+- (NSString *)mainDescription {
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:self.date];
+    
+    return [NSString stringWithFormat:@"%zd %@", components.day, self.content];
+}
+
+- (NSString *)subDescription {
+    return [NSString stringWithFormat:@"%.2f", self.amount];
+}
 
 @end

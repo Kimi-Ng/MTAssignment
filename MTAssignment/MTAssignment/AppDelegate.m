@@ -21,6 +21,9 @@
     
     AccountViewController *rootViewController = [[AccountViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    [navigationController.navigationBar setBarTintColor:[UIColor orangeColor]];
+    navigationController.navigationBar.translucent = NO;
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];

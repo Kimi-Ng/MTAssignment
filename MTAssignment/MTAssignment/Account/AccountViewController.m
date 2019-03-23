@@ -21,7 +21,17 @@
 }
 
 - (void)setUpViews {
-    
+    self.navigationItem.title = @"Balance";
+    [self setUpHeaderView];
+    [self setUpTableViewController];
+}
+
+- (void)setUpTableViewController {
+    //TODO
+}
+
+- (void)setUpHeaderView {
+    //TODO
 }
 
 @end

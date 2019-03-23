@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MTHeaderView : UIView
 
+- (void)setMainCaption:(NSString *)caption;
+
 @end
 
 NS_ASSUME_NONNULL_END

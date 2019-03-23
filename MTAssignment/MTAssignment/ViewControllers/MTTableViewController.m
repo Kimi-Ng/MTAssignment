@@ -5,6 +5,8 @@
 //  Created by Wu Chengyuan on 2019/03/23.
 //  Copyright © 2019 Wu Chengyuan. All rights reserved.
 //
+//  Allow for some customization in the future
+//
 
 #import "MTTableViewController.h"
 
@@ -16,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor orangeColor]];
 }
 
 @end

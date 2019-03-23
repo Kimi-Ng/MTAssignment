@@ -20,7 +20,6 @@ static NSString * const ACCOUNT_JSON_FILE = @"accounts";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[FetchManager alloc] init];
-        // Do any other initialisation stuff here
     });
     return sharedInstance;
 }

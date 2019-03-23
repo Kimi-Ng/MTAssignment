@@ -18,12 +18,13 @@
 		089AA9822246747400355012 /* MTSimpleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 089AA9812246747400355012 /* MTSimpleTableViewCell.m */; };
 		089AA989224681B900355012 /* AccountViewController+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 089AA988224681B900355012 /* AccountViewController+DataSource.m */; };
 		08AFB525224688C1001C0B93 /* TransactionViewController+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AFB524224688C1001C0B93 /* TransactionViewController+DataSource.m */; };
+		08AFB5292246906C001C0B93 /* FetchManager+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AFB5282246906C001C0B93 /* FetchManager+Private.m */; };
+		08AFB52B22469160001C0B93 /* FetchManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AFB52A22469160001C0B93 /* FetchManagerTests.m */; };
 		08F97213224656B800FFC221 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F97212224656B800FFC221 /* AppDelegate.m */; };
 		08F9721C224656B800FFC221 /* MTAssignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08F9721A224656B800FFC221 /* MTAssignment.xcdatamodeld */; };
 		08F9721E224656B800FFC221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08F9721D224656B800FFC221 /* Assets.xcassets */; };
 		08F97221224656B800FFC221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F9721F224656B800FFC221 /* LaunchScreen.storyboard */; };
 		08F97224224656B800FFC221 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F97223224656B800FFC221 /* main.m */; };
-		08F9722E224656B800FFC221 /* MTAssignmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F9722D224656B800FFC221 /* MTAssignmentTests.m */; };
 		08F97241224657E100FFC221 /* transactions_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F9723D224657E100FFC221 /* transactions_2.json */; };
 		08F97242224657E100FFC221 /* transactions_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F9723E224657E100FFC221 /* transactions_1.json */; };
 		08F97243224657E100FFC221 /* transactions_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F9723F224657E100FFC221 /* transactions_3.json */; };
@@ -68,6 +69,9 @@
 		089AA988224681B900355012 /* AccountViewController+DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AccountViewController+DataSource.m"; sourceTree = "<group>"; };
 		08AFB523224688C1001C0B93 /* TransactionViewController+DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransactionViewController+DataSource.h"; sourceTree = "<group>"; };
 		08AFB524224688C1001C0B93 /* TransactionViewController+DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TransactionViewController+DataSource.m"; sourceTree = "<group>"; };
+		08AFB5272246906C001C0B93 /* FetchManager+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FetchManager+Private.h"; sourceTree = "<group>"; };
+		08AFB5282246906C001C0B93 /* FetchManager+Private.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FetchManager+Private.m"; sourceTree = "<group>"; };
+		08AFB52A22469160001C0B93 /* FetchManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FetchManagerTests.m; sourceTree = "<group>"; };
 		08F9720E224656B800FFC221 /* MTAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08F97211224656B800FFC221 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08F97212224656B800FFC221 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,7 +81,6 @@
 		08F97222224656B800FFC221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08F97223224656B800FFC221 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08F97229224656B800FFC221 /* MTAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		08F9722D224656B800FFC221 /* MTAssignmentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTAssignmentTests.m; sourceTree = "<group>"; };
 		08F9722F224656B800FFC221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08F9723D224657E100FFC221 /* transactions_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactions_2.json; sourceTree = "<group>"; };
 		08F9723E224657E100FFC221 /* transactions_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactions_1.json; sourceTree = "<group>"; };
@@ -207,6 +210,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		08AFB52622469057001C0B93 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				08AFB5272246906C001C0B93 /* FetchManager+Private.h */,
+				08AFB5282246906C001C0B93 /* FetchManager+Private.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 		08F97205224656B700FFC221 = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +240,7 @@
 		08F97210224656B800FFC221 /* MTAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				08AFB52622469057001C0B93 /* Private */,
 				089AA97F2246744000355012 /* Cells */,
 				089AA97B224666B700355012 /* ViewControllers */,
 				089AA9772246668100355012 /* Views */,
@@ -250,8 +263,8 @@
 		08F9722C224656B800FFC221 /* MTAssignmentTests */ = {
 			isa = PBXGroup;
 			children = (
-				08F9722D224656B800FFC221 /* MTAssignmentTests.m */,
 				08F9722F224656B800FFC221 /* Info.plist */,
+				08AFB52A22469160001C0B93 /* FetchManagerTests.m */,
 			);
 			path = MTAssignmentTests;
 			sourceTree = "<group>";
@@ -388,6 +401,7 @@
 				089AA989224681B900355012 /* AccountViewController+DataSource.m in Sources */,
 				089AA9822246747400355012 /* MTSimpleTableViewCell.m in Sources */,
 				089AA97A224666B000355012 /* MTHeaderView.m in Sources */,
+				08AFB5292246906C001C0B93 /* FetchManager+Private.m in Sources */,
 				089AA9762246666300355012 /* TransactionViewModel.m in Sources */,
 				08F9724E22465A0E00FFC221 /* Transaction+CoreDataClass.m in Sources */,
 				089AA95D22465BAD00355012 /* CoreDataManager.m in Sources */,
@@ -410,7 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08F9722E224656B800FFC221 /* MTAssignmentTests.m in Sources */,
+				08AFB52B22469160001C0B93 /* FetchManagerTests.m in Sources */,
 				08F97245224659EF00FFC221 /* MTAssignment.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

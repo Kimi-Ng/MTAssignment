@@ -32,6 +32,54 @@
     return [self fetchCoreDataWithEntry:@"Transaction" predicate:[NSPredicate predicateWithFormat:@"accountID == %u", accountID]];
 }
 
+
+- (void)updateAccountWithData:(NSDictionary *)data completion:(void(^)(NSMutableArray <Account*> *))completion {
+    NSMutableArray <Account *> *accountList = [[NSMutableArray alloc] init];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context =  appDelegate.persistentContainer.viewContext;
+        
+        // clear old data in core data
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
+        NSBatchDeleteRequest *clearRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
+        [context executeRequest:clearRequest error:nil];
+        
+        // store new data to core data
+        [data[@"accounts"] enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull accountDict, NSUInteger idx, BOOL * _Nonnull stop) {
+            Account *account = [[Account alloc] initWithContext:context propertyDict:accountDict];
+            [accountList addObject:account];
+        }];
+        [context save:nil];
+        
+        completion(accountList);
+    });
+}
+
+- (void)updateTransactionWithAccountID:(NSInteger)accountID data:(NSDictionary *)data completion:(void(^)(NSMutableArray <Transaction *> *))completion {
+    NSMutableArray <Transaction*> *transactionList = [[NSMutableArray alloc] init];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context =  appDelegate.persistentContainer.viewContext;
+        
+        // clear old transation data in core data
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Transaction"];
+        request.predicate = [NSPredicate predicateWithFormat:@"accountID == %u", accountID];
+        NSBatchDeleteRequest *deleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
+        [context executeRequest:deleteRequest error:nil];
+        
+        // add new transaction data in core data
+        [data[@"transactions"] enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull transactionDict, NSUInteger idx, BOOL * _Nonnull stop) {
+            Transaction *transaction = [[Transaction alloc] initWithContext:context propertyDict:transactionDict];
+            [transactionList addObject:transaction];
+            [context save:nil];
+        }];
+        
+        completion(transactionList);
+    });
+}
+
+
 - (NSArray *)fetchCoreDataWithEntry:(NSString *)entry predicate:(NSPredicate *)predicate{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context =  appDelegate.persistentContainer.viewContext;

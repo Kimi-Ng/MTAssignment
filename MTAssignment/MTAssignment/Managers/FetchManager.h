@@ -9,10 +9,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Account+CoreDataClass.h"
+#import "Transaction+CoreDataClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FetchManager : NSObject
+
++ (instancetype)sharedInstance;
+
+- (void)fetchAccountsWithCompletion:(void(^)(NSMutableArray<Account*>*))completion;
+    
+- (void)fetchTransactionsWithAccountID:(NSInteger)accountID
+                            completion:(void(^)(NSMutableArray<Transaction *>*))completion;
 
 @end
 

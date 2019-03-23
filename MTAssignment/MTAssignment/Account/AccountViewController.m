@@ -7,21 +7,18 @@
 //
 
 #import "AccountViewController.h"
+#import "AccountViewController+DataSource.h"
 #import "MTHeaderView.h"
-#import "AccountViewModel.h"
 #import "MTTableViewController.h"
 #import "MTSimpleTableViewCell.h"
 
-static NSString *const kAccountCellIdentifier = @"accountCell";
 
 
-@interface AccountViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface AccountViewController ()
 //Data
-@property (strong, nonatomic) AccountViewModel *viewModel;
-
+@property (strong, nonatomic, readwrite) AccountViewModel *viewModel;
 //View
 @property (strong, nonatomic) MTHeaderView *headerView;
-
 //ViewController
 @property (strong, nonatomic) MTTableViewController *tableViewController;
 
@@ -87,53 +84,5 @@ static NSString *const kAccountCellIdentifier = @"accountCell";
         view;
     });
 }
-
-
-#pragma mark UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return self.viewModel.data.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.viewModel.data
-    [section].accountList.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    MTSimpleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kAccountCellIdentifier];
-    if (cell == nil) {
-        cell = [[MTSimpleTableViewCell alloc] init];
-    }
-
-    Account *account = self.viewModel.data[indexPath.section].accountList[indexPath.row];
-    [cell populateCellWithData:account];
-
-    return cell;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return self.viewModel.data[section].section;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //TODO: push  detail viewcontroller
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
-{
-    if([view isKindOfClass:[UITableViewHeaderFooterView class]]){
-        UITableViewHeaderFooterView * headerView = (UITableViewHeaderFooterView *) view;
-        headerView.textLabel.textColor  = [UIColor whiteColor];
-        headerView.backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1];
-        
-    }
-}
-
 
 @end

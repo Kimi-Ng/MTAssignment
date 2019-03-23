@@ -11,7 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#define kAccountUpdateNotification @"kAccountUpdateNotification"
+
 @class AccountModel;
+
 
 @interface AccountViewModel : NSObject
 @property (assign, nonatomic, readonly) NSString *headerTitle;
@@ -20,10 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface AccountModel : NSObject
-@property (strong, nonatomic) NSString *group;
+@property (strong, nonatomic) NSString *section;
 @property (strong, nonatomic) NSArray <Account *> *accountList;
 
-- (instancetype)initWithGroup:(NSString *)group accounts:(NSArray *)accounts;
+- (instancetype)initWithSection:(NSString *)section accounts:(NSArray *)accounts;
 - (void)update;
 
 @end

@@ -12,10 +12,10 @@
 
 @implementation AccountModel
 
-- (instancetype)initWithGroup:(NSString *)group accounts:(NSArray *)accounts {
+- (instancetype)initWithSection:(NSString *)section accounts:(NSArray *)accounts {
     self = [super init];
     if(self) {
-        self.group = group; //name to section
+        self.section = section; //name to section
         self.accountList = accounts;
     }
     return self;
@@ -52,7 +52,14 @@
 }
 
 - (void)update {
-    //TODO - allow force update by user
+    [[FetchManager sharedInstance] fetchAccountsWithCompletion:^(NSMutableArray<Account *> * _Nonnull accountList) {
+        //need to update viewModel
+        self.data = [self viewModelFromAccountList:accountList];
+        self.headerTitle = [self totalBalanceForAccounts:accountList];
+        //need to update view
+        //post notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAccountUpdateNotification object:@{@"NewData":self.data}];
+    }];
 }
 
 //transform Account list into AccountModel list
@@ -70,12 +77,12 @@
     
     NSMutableArray<AccountModel *> *viewModelArr = [[NSMutableArray alloc] init];
     [dict enumerateKeysAndObjectsUsingBlock:^(NSString*  _Nonnull key, NSArray<Account *>*  _Nonnull accounts, BOOL * _Nonnull stop) {
-        AccountModel *viewModel = [[AccountModel alloc] initWithGroup:key accounts:accounts];
+        AccountModel *viewModel = [[AccountModel alloc] initWithSection:key accounts:accounts];
         [viewModelArr addObject:viewModel];
         
     }];
     
-    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"group" ascending:YES];
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"section" ascending:YES];
     [viewModelArr sortUsingDescriptors:@[sortDesc]];
     
     return viewModelArr;

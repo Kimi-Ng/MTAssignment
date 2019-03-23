@@ -100,3 +100,20 @@
 }
 
 @end
+
+
+@implementation Account (MTSimpleListDataProtocol)
+
+- (NSString *)mainDescription {
+    return self.nickname;
+}
+
+- (NSString *)subDescription
+{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setCurrencySymbol:self.currency];
+    return [formatter stringFromNumber:@(self.currentBalance)];
+}
+
+@end

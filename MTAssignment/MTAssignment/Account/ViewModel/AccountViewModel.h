@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Account+CoreDataClass.h"
+#import "MTSimpleTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,14 +21,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic, readonly) NSString *headerTitle;
 @property (strong, nonatomic, readonly) NSArray<AccountModel *> *data;
 
+- (void)update;
+
 @end
+
 
 @interface AccountModel : NSObject
 @property (strong, nonatomic) NSString *section;
 @property (strong, nonatomic) NSArray <Account *> *accountList;
 
 - (instancetype)initWithSection:(NSString *)section accounts:(NSArray *)accounts;
-- (void)update;
+
+@end
+
+@interface Account (MTSimpleTableViewCellDataProtocol) <MTSimpleTableViewCellDataProtocol>
 
 @end
 

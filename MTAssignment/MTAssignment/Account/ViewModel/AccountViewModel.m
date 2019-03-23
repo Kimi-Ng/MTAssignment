@@ -15,7 +15,7 @@
 - (instancetype)initWithSection:(NSString *)section accounts:(NSArray *)accounts {
     self = [super init];
     if(self) {
-        self.section = section; //name to section
+        self.section = section;
         self.accountList = accounts;
     }
     return self;
@@ -56,8 +56,6 @@
         //need to update viewModel
         self.data = [self viewModelFromAccountList:accountList];
         self.headerTitle = [self totalBalanceForAccounts:accountList];
-        //need to update view
-        //post notification
         [[NSNotificationCenter defaultCenter] postNotificationName:kAccountUpdateNotification object:@{@"NewData":self.data}];
     }];
 }

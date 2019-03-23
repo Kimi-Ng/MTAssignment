@@ -12,8 +12,8 @@
 #import "TransactionViewController+DataSource.h"
 
 @interface TransactionViewController ()
+//Data
 @property (strong, nonatomic, readwrite) TransactionViewModel *viewModel;
-
 //UI
 @property (strong, nonatomic) MTTableViewController *tableViewController;
 @property (strong, nonatomic) MTHeaderView *headerView;
@@ -57,7 +57,7 @@
     });
 }
 
-- (void)setupTableVC{
+- (void)setupTableViewController {
     [self setupHeaderView];
     MTTableViewController *vc = [[MTTableViewController alloc] initWithStyle:UITableViewStylePlain];
     
@@ -82,9 +82,7 @@
 
 - (void)setUpView {
     self.navigationItem.title = @"Transactions";
-    
-    //    [self setUpTableView];
-    [self setupTableVC];
+    [self setupTableViewController];
 }
 
 

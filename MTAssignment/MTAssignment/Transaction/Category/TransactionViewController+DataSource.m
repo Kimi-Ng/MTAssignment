@@ -7,7 +7,6 @@
 //
 
 #import "TransactionViewController+DataSource.h"
-#import "MTSimpleTableViewCell.h"
 
 static NSString *const kTransactionCellIdentifier = @"kTransactionCellIdentifier";
 

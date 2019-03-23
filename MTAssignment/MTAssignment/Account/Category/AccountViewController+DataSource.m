@@ -31,7 +31,6 @@ static NSString *const kAccountCellIdentifier = @"kAccountCellIdentifier";
     if (cell == nil) {
         cell = [[MTSimpleTableViewCell alloc] init];
     }
-    
     Account *account = self.viewModel.data[indexPath.section].accountList[indexPath.row];
     [cell populateCellWithData:account];
     

@@ -10,6 +10,17 @@
 #import "FetchManager.h"
 #import "FetchManager+Private.h"
 
+//@interface FetchManager (Private)
+//
+//- (NSDictionary *)parseJSON:(NSString * __nonnull)json;
+//
+//- (NSString *)readFile:(NSString * __nonnull)fileName;
+//
+//- (NSString *)fileNameForAccountID:(NSInteger)accountID;
+//
+//@end
+
+
 @interface FetchManagerTests : XCTestCase
 
 @end

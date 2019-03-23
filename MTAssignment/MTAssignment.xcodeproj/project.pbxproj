@@ -18,7 +18,6 @@
 		089AA9822246747400355012 /* MTSimpleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 089AA9812246747400355012 /* MTSimpleTableViewCell.m */; };
 		089AA989224681B900355012 /* AccountViewController+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 089AA988224681B900355012 /* AccountViewController+DataSource.m */; };
 		08AFB525224688C1001C0B93 /* TransactionViewController+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AFB524224688C1001C0B93 /* TransactionViewController+DataSource.m */; };
-		08AFB5292246906C001C0B93 /* FetchManager+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AFB5282246906C001C0B93 /* FetchManager+Private.m */; };
 		08AFB52B22469160001C0B93 /* FetchManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AFB52A22469160001C0B93 /* FetchManagerTests.m */; };
 		08F97213224656B800FFC221 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F97212224656B800FFC221 /* AppDelegate.m */; };
 		08F9721C224656B800FFC221 /* MTAssignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08F9721A224656B800FFC221 /* MTAssignment.xcdatamodeld */; };
@@ -70,8 +69,8 @@
 		08AFB523224688C1001C0B93 /* TransactionViewController+DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransactionViewController+DataSource.h"; sourceTree = "<group>"; };
 		08AFB524224688C1001C0B93 /* TransactionViewController+DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TransactionViewController+DataSource.m"; sourceTree = "<group>"; };
 		08AFB5272246906C001C0B93 /* FetchManager+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FetchManager+Private.h"; sourceTree = "<group>"; };
-		08AFB5282246906C001C0B93 /* FetchManager+Private.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FetchManager+Private.m"; sourceTree = "<group>"; };
 		08AFB52A22469160001C0B93 /* FetchManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FetchManagerTests.m; sourceTree = "<group>"; };
+		08AFB53822469AED001C0B93 /* CoreDataManager+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreDataManager+Private.h"; sourceTree = "<group>"; };
 		08F9720E224656B800FFC221 /* MTAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08F97211224656B800FFC221 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08F97212224656B800FFC221 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -214,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				08AFB5272246906C001C0B93 /* FetchManager+Private.h */,
-				08AFB5282246906C001C0B93 /* FetchManager+Private.m */,
+				08AFB53822469AED001C0B93 /* CoreDataManager+Private.h */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -401,7 +400,6 @@
 				089AA989224681B900355012 /* AccountViewController+DataSource.m in Sources */,
 				089AA9822246747400355012 /* MTSimpleTableViewCell.m in Sources */,
 				089AA97A224666B000355012 /* MTHeaderView.m in Sources */,
-				08AFB5292246906C001C0B93 /* FetchManager+Private.m in Sources */,
 				089AA9762246666300355012 /* TransactionViewModel.m in Sources */,
 				08F9724E22465A0E00FFC221 /* Transaction+CoreDataClass.m in Sources */,
 				089AA95D22465BAD00355012 /* CoreDataManager.m in Sources */,

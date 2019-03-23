@@ -34,11 +34,16 @@
 
 
 - (void)updateAccountWithData:(NSDictionary *)data completion:(void(^)(NSMutableArray <Account*> *))completion {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context =  appDelegate.persistentContainer.viewContext;
+    [self updateAccountWithData:data context:context completion:completion];
+}
+
+- (void)updateAccountWithData:(NSDictionary *)data
+                      context:(NSManagedObjectContext *)context
+                   completion:(void(^)(NSMutableArray <Account*> *))completion {
     NSMutableArray <Account *> *accountList = [[NSMutableArray alloc] init];
     dispatch_async(dispatch_get_main_queue(), ^{
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context =  appDelegate.persistentContainer.viewContext;
-        
         // clear old data in core data
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
         NSBatchDeleteRequest *clearRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
@@ -55,13 +60,21 @@
     });
 }
 
-- (void)updateTransactionWithAccountID:(NSInteger)accountID data:(NSDictionary *)data completion:(void(^)(NSMutableArray <Transaction *> *))completion {
-    NSMutableArray <Transaction*> *transactionList = [[NSMutableArray alloc] init];
+- (void)updateTransactionWithAccountID:(NSInteger)accountID
+                                  data:(NSDictionary *)data
+                            completion:(void(^)(NSMutableArray <Transaction *> *))completion {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context =  appDelegate.persistentContainer.viewContext;
+    [self updateTransactionWithAccountID:accountID data:data context:context completion:completion];
+}
 
+- (void)updateTransactionWithAccountID:(NSInteger)accountID
+                                  data:(NSDictionary *)data
+                               context:(NSManagedObjectContext *)context
+                            completion:(void(^)(NSMutableArray <Transaction *> *))completion {
+    NSMutableArray <Transaction*> *transactionList = [[NSMutableArray alloc] init];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context =  appDelegate.persistentContainer.viewContext;
-        
         // clear old transation data in core data
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Transaction"];
         request.predicate = [NSPredicate predicateWithFormat:@"accountID == %u", accountID];
@@ -77,18 +90,24 @@
         
         completion(transactionList);
     });
+    
 }
-
 
 - (NSArray *)fetchCoreDataWithEntry:(NSString *)entry predicate:(NSPredicate *)predicate{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context =  appDelegate.persistentContainer.viewContext;
+    return [self fetchCoreDataWithEntry:entry context:context predicate:predicate];
+}
+
+- (NSArray *)fetchCoreDataWithEntry:(NSString *)entry
+                            context:(NSManagedObjectContext *)context
+                          predicate:(NSPredicate *)predicate {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entry];
     request.predicate = predicate;
     
     NSError *error;
     NSArray *result = [context executeFetchRequest:request error:&error];
-
+    
     if (!error) {
         return result;
     } else {
@@ -96,5 +115,7 @@
         return nil;
     }
 }
+
+
 
 @end

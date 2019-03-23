@@ -26,7 +26,7 @@
         self.accountID = accountID;
         
         //data from coredata
-        NSArray <Transaction *> * transactions = [[CoreDataManager sharedInstance] fetchTransactionsFromCoreDataWithAccountID:accountID];
+        NSArray <Transaction *> * transactions = [[CoreDataManager sharedInstance] fetchTransactionsWithAccountID:accountID];
         self.data = [self viewModelFromTransacitonArray:transactions];
         if (self.data == nil || self.data.count == 0) {
             //fetch remote

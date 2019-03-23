@@ -18,9 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
-- (NSArray <Account *> *)fetchAccountsFromCoreData;
+- (NSArray <Account *> *)fetchAccounts;
 
-- (NSArray <Transaction *> *)fetchTransactionsFromCoreDataWithAccountID:(NSInteger)accountID;
+- (NSArray <Transaction *> *)fetchTransactionsWithAccountID:(NSInteger)accountID;
 
 - (void)updateAccountWithData:(NSDictionary *)data
                    completion:(void(^)(NSMutableArray<Account*>*))completion;

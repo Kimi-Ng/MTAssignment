@@ -24,11 +24,11 @@
     return sharedInstance;
 }
 
-- (NSArray <Account *> *)fetchAccountsFromCoreData {
+- (NSArray <Account *> *)fetchAccounts {
     return [self fetchCoreDataWithEntry:@"Account" predicate:nil];
 }
 
-- (NSArray <Transaction *> *)fetchTransactionsFromCoreDataWithAccountID:(NSInteger)accountID {
+- (NSArray <Transaction *> *)fetchTransactionsWithAccountID:(NSInteger)accountID {
     return [self fetchCoreDataWithEntry:@"Transaction" predicate:[NSPredicate predicateWithFormat:@"accountID == %u", accountID]];
 }
 

@@ -38,7 +38,7 @@
     self = [super init];
     if (self) {
         //fetch data from core data
-        NSArray *accountList = [[CoreDataManager sharedInstance] fetchAccountsFromCoreData];
+        NSArray *accountList = [[CoreDataManager sharedInstance] fetchAccounts];
         self.headerTitle = [self totalBalanceForAccounts:accountList];
         self.data = [self viewModelFromAccountList:accountList];
         

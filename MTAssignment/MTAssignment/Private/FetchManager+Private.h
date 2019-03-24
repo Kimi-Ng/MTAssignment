@@ -6,7 +6,6 @@
 //  Copyright © 2019 Wu Chengyuan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "FetchManager.h"
 
 NS_ASSUME_NONNULL_BEGIN

@@ -6,8 +6,7 @@
 //  Copyright © 2019 Wu Chengyuan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "FetchManager.h"
+#import "CoreDataManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray *)fetchCoreDataWithEntry:(NSString *)entry
                             context:(NSManagedObjectContext *)context
-                          predicate:(NSPredicate *)predicate;
+                          predicate:(NSPredicate * _Nullable )predicate;
 @end
 
 NS_ASSUME_NONNULL_END

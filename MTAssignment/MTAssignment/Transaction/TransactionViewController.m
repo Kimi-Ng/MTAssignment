@@ -24,7 +24,6 @@
 
 
 - (instancetype)initWithAccountID:(NSInteger)accountID {
-    //fetch data with accoundID
     self = [super init];
     if (self) {
         self.viewModel = [[TransactionViewModel alloc] initWithAccountID:accountID];
@@ -40,7 +39,7 @@
 
 - (void)didDataUpdate:(NSNotification *)notification {
     [self.tableViewController.tableView reloadData];
-    //    [self.headerView setMainCaption:self.viewModel.headerTitle];
+    //TODO: update header view
 }
 
 - (void)setupHeaderView {
@@ -73,7 +72,6 @@
     NSLayoutConstraint *leftAnchor = [vc.view.leftAnchor constraintEqualToAnchor:self.view.leftAnchor];
     NSLayoutConstraint *topAnchor = [vc.view.topAnchor constraintEqualToAnchor:self.headerView.bottomAnchor];
     NSLayoutConstraint *width = [vc.view.widthAnchor constraintEqualToAnchor:self.view.widthAnchor];
-    //        NSLayoutConstraint *height = [tableView.heightAnchor constraintEqualToAnchor:self.view.heightAnchor];
     NSLayoutConstraint *bottom = [vc.view.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor];
     [NSLayoutConstraint activateConstraints:@[leftAnchor, topAnchor, width, bottom]];
     self.tableViewController = vc;
